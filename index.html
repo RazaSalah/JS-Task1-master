@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Selecting an Element!</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <ul class="container">
+        <li class="box" id="box-1"></li>
+        <li class="box box-to-select" id="box-2"></li>
+        <li class="box box-to-select" id="box-3"></li>
+        <li class="box box-to-select" id="box-4"></li>
+        <li class="box" id="box-5"></li>
+        <li class="box box-to-select-2" id="box-6"></li>
+        <li class="box box-to-select-2" id="box-7"></li>
+        <li class="box box-to-select-2" id="box-8"></li>
+      </ul>
+    </div>
+
+    <script>
+            //Get element by id
+            //since we are dealing with one element we will not use the for loop
+            const firstBox = document.getElementById("box-1");
+            firstBox.addEventListener("click" , function(event){
+              event.target.style.backgroundColor="#f0efef";
+            });
+
+            //Get element by className
+            //Iterate boxes through a For of loop to add functionality
+            //we have several elements with the same class name that why we need to use the for loop
+            const box = document.getElementsByClassName("box-to-select");
+            for(const elements of box){
+
+            elements.addEventListener("click" , function(event){
+              event.target.style.backgroundColor=" #ddeedd";
+            });
+          }
+
+            //Get Element with querySelector
+            //we can target the element by the id with # symbol , class with . symbol 
+            const boxFive = document.querySelector("#box-5");
+            boxFive.addEventListener("click" , function(event){
+              event.target.style.backgroundColor=" #c2d4dd";
+            });
+
+            //Get element by querySelectorAll
+            //Iterate boxes through a For of loop to add functionality
+            const lastBoxes = document.querySelectorAll(".box-to-select-2");
+            for(const element of lastBoxes){
+              element.addEventListener("click" , function(event){
+             event.target.style.backgroundColor="#b0aac0";
+              });
+            }
+    </script>
+  </body>
+</html>
